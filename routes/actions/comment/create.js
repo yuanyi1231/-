@@ -4,9 +4,9 @@ const { Post } = require('../../../model/Post');
 
 module.exports = async (req, res) => {
 	if (req.session.userInfo) {
-		// 存储评论人信息
+		//存储评论人信息
 		req.fields.author = req.session.userInfo._id;
-		// 数据格式校验
+	//	数据格式校验
 		const { error } = validateComment(req.fields);
 		// 格式不符合要求
 		if (error) return res.status(400).send({message: error.message})
